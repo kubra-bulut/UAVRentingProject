@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Create Uav</title>
+{% endblock title %}
+
+{% block content %}
+
+  <script src ="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <div class="container">
+      <form method="POST" class="post-form">
+        {% csrf_token %}
+    <div class="container">
+    <br>
+
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Create New Uav</h3>
+    <h5>Enter New Uav Details</h5>
+    </div>
+  </div>
+
+
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Uav Model:</label>
+    <div class="col-sm-4">
+      {{ form.model }}
+    </div>
+
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Uav Brand:</label>
+    <div class="col-sm-4">
+      {{ form.brand }}
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Uav Weight:</label>
+    <div class="col-sm-4">
+      {{ form.weight }}
+    </div>
+    </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Uav Category:</label>
+    <div class="col-sm-4">
+      {{ form.category }}
+        <i class="col-sm-4"></i>
+    </div>
+    </div>
+
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-info">Create</button>
+    <a href="/uavs" class="btn btn-info">Cancel</a>
+
+    </div>
+    </div>
+
+    </div>
+
+</form>
+    </div>
+{% block scripting %}
+<script>
+  $( function() {
+    $( "#id_edob" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: '1950:2050',
+      dateFormat: 'yy-mm-dd',
+      defaultDate:"24-09-2019"
+    });
+  } );
+</script>
+
+ <script>
+     $(document).ready(function () {
+     $('.dropdown-toggle').dropdown();
+     });
+</script>
+{% endblock %}
+{% endblock content %}

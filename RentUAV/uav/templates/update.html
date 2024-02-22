@@ -1,0 +1,123 @@
+
+{% extends 'base.html' %}
+{% block title %}
+    <title>Update Uav</title>
+{% endblock title %}
+
+{% block content %}
+
+
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <div class="container">
+      <form method="POST" class="post-form" >
+        {% csrf_token %}
+      {% if form.errors %}
+	<!-- Error messaging -->
+	<div id="errors">
+		<div class="inner">
+			<p>There were some errors in the information you entered. Please correct the following:</p>
+			<ul>
+				{% for field in form %}
+					{% if field.errors %}<li>{{ field.label }}: {{ field.errors|striptags }}</li>{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	<!-- /Error messaging -->
+{% endif %}
+
+    <div class="container">
+
+
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Update Details</h3>
+    </div>
+  </div>
+
+
+  <div class="form-group row align-items-center">
+    <label for="id_model" class="col-sm-2 col-form-label">Uav Model:</label>
+    <div class="col-sm-4">
+     <input type="text"  name="model" id="id_model"  required maxlength="25" value="{{ uav.model }}" />
+    </div>
+  </div>
+
+  <div class="form-group row align-items-center">
+    <label for="id_brand" class="col-sm-2 col-form-label">Uav Brand:</label>
+    <div class="col-sm-4">
+     <input type="text"  name="brand" id="id_brand"  required maxlength="25" value="{{ uav.brand }}" />
+    </div>
+  </div>
+
+  <div class="form-group row align-items-center">
+    <label for="id_weight" class="col-sm-2 col-form-label">Uav Weight:</label>
+    <div class="col-sm-4">
+     <input type="text" name="weight" id="id_weight" required maxlength="15" value="{{ uav.weight }}" />
+    </div>
+  </div>
+
+
+   <div class="form-group row align-items-center">
+   <label for="id_category" class="col-sm-2 col-form-label">Uav Category:</label>
+    <div class="col-sm-8  pull-left">
+       <input type="text" name="category" id="id_category" required maxlength="35" value="{{ uav.category }}" aria-describedby="textHelpInline" >
+
+     
+    </div>
+  </div>
+
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-info">Update</button>
+    <a href="/uavs" class="btn btn-info">Cancel</a>
+
+    </div>
+    </div>
+
+    </div>
+
+</form>
+    </div>
+{% block scripting %}
+<script>
+  $( function() {
+    $( "#id_edob" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: '1950:2050',
+      dateFormat: 'yy-mm-dd',
+      defaultDate:'2019-06-08'
+    });
+  } );
+</script>
+
+ <script>
+     $(document).ready(function () {
+     $('.dropdown-toggle').dropdown();
+     });
+</script>
+<script>
+            {% if messages %}
+                {% for message in messages %}
+                    alert(message);
+                {% endfor %}
+            {% endif %}
+        </script>
+{% endblock %}
+
+{% endblock content %}
+
+
+
+
+

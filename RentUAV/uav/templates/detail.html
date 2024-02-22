@@ -1,0 +1,81 @@
+<{% extends 'base.html' %}
+{% block title %}
+    <title>Detail</title>
+{% endblock title %}
+
+{% block content %}
+
+<script src ="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <div class="container">
+
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Uav Details</h3>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Uav Id:</label>
+    <div class="col-sm-4">
+        <label>{{ uav.id }} </label>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Uav Model:</label>
+    <div class="col-sm-4">
+        <label>{{ uav.model }} </label>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Uav Brand:</label>
+    <div class="col-sm-4">
+        <label>{{ uav.brand }} </label>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Uav Weight:</label>
+    <div class="col-sm-4">
+         <label>{{ uav.weight }} </label>
+    </div>
+    </div>
+
+   <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Uav Category:</label>
+    <div class="col-sm-4 ">
+         <label>{{ uav.category }} </label>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+
+    <a href="/uavs" class="btn btn-info">OK</a>
+    </div>
+  </div>
+
+    </div>
+
+
+ </div>
+{% block scripting %}
+
+ <script>
+     $(document).ready(function () {
+     $('.dropdown-toggle').dropdown();
+     });
+</script>
+{% endblock %}
+
+{% endblock content %}
+
+
+
+
+
