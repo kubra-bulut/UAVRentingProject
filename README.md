@@ -25,6 +25,19 @@ This is a web application developed using Python, Django, PostgreSQL, and Django
 
 -Searching functionality provided for all list pages.
 
+## Setup Instructions
+
+1.Install dependencies:
+`pip install -r requirements.txt`
+
+2.Set up PostgreSQL and configure the database settings in `settings.py`.
+
+3.Run migrations:
+`python manage.py migrate`
+
+4.Run the development server:
+`python manage.py runserver`
+
 -You can access the admin panel using the following credentials:
 
 - **Username:** admin
